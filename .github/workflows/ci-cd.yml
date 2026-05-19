@@ -53,3 +53,7 @@ jobs:
 
       - name: Run Security Audit
         run: npm audit --audit-level=high
+
+      - name: Notify if Test Pipeline Fails
+        if: failure()
+        run: echo "TEST PIPELINE FAILED: Please check unit tests, ESLint issues, or dependency vulnerabilities."
